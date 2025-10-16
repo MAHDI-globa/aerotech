@@ -1,0 +1,28 @@
+[project]
+name = "aerotech-etl"
+version = "0.1.0"
+description = "Automatisation de l'extraction Excel vers PostgreSQL"
+authors = [{name = "Aerotech", email = "contact@example.com"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "numpy",
+    "SQLAlchemy>=2.0",
+    "psycopg2-binary",
+    "openpyxl",
+    "pyxlsb",
+]
+
+[project.scripts]
+aerotech-extract = "aerotech_etl.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
