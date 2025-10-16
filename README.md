@@ -7,7 +7,7 @@ Il est volontairement minimaliste afin de rester facile à lire et à adapter.
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+.venv\Scripts\Activate.ps1
 pip install -e .
 ```
 
