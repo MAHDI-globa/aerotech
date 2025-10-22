@@ -106,6 +106,40 @@ cd C:\globasoft\extracteur
 
 #### macOS / Linux
 ```
+# [0] Se placer à la racine du projet et activer le venv 3.11
+cd ~/apps/extracteur
+source .venv311/bin/activate
+
+# [1] Vérifier la présence des fichiers .env
+ls -la | grep .env
+
+# [2] Définir l’environnement et l’utilisateur pour l’audit
+export ENV=rec
+export LOADED_BY="$(whoami)"
+
+# [3] (si besoin) convertir les fins de lignes Windows -> Unix
+sed -i 's/\r$//' .env.rec .env.files.rec
+
+# [4] Charger les variables d’environnement depuis les deux fichiers
+set -a
+. ./.env.rec
+. ./.env.files.rec
+set +a
+
+# [5] Vérifier que les variables sont bien chargées
+echo "ENV=$ENV  LOG_DIR=$LOG_DIR  PG_HOST=$PG_HOST"
+
+# [6] Créer le répertoire de logs si nécessaire
+mkdir -p "$LOG_DIR"
+
+# [7] Lancer le job depuis la racine du projet (ne pas faire cd src)
+python -m src.run_jobs
+
+# [8] (option) Suivre les logs en direct
+# tail -f "$LOG_DIR"/extracteur.log
+
+```
+```
 cd ~/globasoft/extracteur
 source .venv/bin/activate
 python -m dotenv -f .env.dev run -- python -m src.run_jobs
