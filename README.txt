@@ -28,9 +28,13 @@ python -m pip install "python-dotenv[cli]"
 
 ### macOS / Linux (bash/zsh)
 ```
-cd ~/globasoft/extracteur
-python3 -m venv .venv
-source .venv/bin/activate
+# installer Python 3.11
+sudo dnf install -y python3.11 python3.11-devel
+
+# créer un nouveau venv en 3.11 (dans ton projet)
+cd ~/apps/extracteur
+python3.11 -m venv .venv311
+source .venv311/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m pip install "python-dotenv[cli]"
