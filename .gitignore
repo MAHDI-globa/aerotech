@@ -1,0 +1,23 @@
+# Python venv & caches
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.build/
+
+# Logs & archives locales
+logs/
+fic/Archives/
+
+# Configs & secrets
+.env
+.env.*
+!*.example
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
