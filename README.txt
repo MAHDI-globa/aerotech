@@ -16,7 +16,7 @@ Ce projet “extracteur” lit des fichiers sources (Excel/CSV), applique des ET
 ----------------------
 ### Windows PowerShell
 ```
-cd C:\globasoft\extracteur
+cd C:\globasoft\aerotech
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
@@ -32,7 +32,7 @@ python -m pip install "python-dotenv[cli]"
 sudo dnf install -y python3.11 python3.11-devel
 
 # créer un nouveau venv en 3.11 (dans ton projet)
-cd ~/apps/extracteur
+cd ~/apps/aerotech
 python3.11 -m venv .venv311
 source .venv311/bin/activate
 python -m pip install --upgrade pip
@@ -43,7 +43,7 @@ python -m pip install "python-dotenv[cli]"
 3) ARBORESCENCE (SIMPLE)
 ------------------------
 ```
-extracteur/
+aerotech/
   logs/                         (créé automatiquement)
   src/
     run_jobs.py                (orchestrateur d’un run)
@@ -99,7 +99,7 @@ Règle : **seuls ces chemins EXACTS sont acceptés**. Toute autre entrée est re
 ### 5.1 Run manuel (recommandé, charge `.env.dev`)
 #### Windows
 ```
-cd C:\globasoft\extracteur
+cd C:\globasoft\aerotech
 .\.venv\Scripts\Activate.ps1
 .\.venv\Scripts\python.exe -m dotenv -f .env.dev run -- .\.venv\Scripts\python.exe -m src.run_jobs
 ```
@@ -107,7 +107,7 @@ cd C:\globasoft\extracteur
 #### macOS / Linux
 ```
 # [0] Se placer à la racine du projet et activer le venv 3.11
-cd ~/apps/extracteur
+cd ~/apps/aerotech
 source .venv311/bin/activate
 
 # [1] Vérifier la présence des fichiers .env
@@ -140,7 +140,7 @@ python -m src.run_jobs
 
 ```
 ```
-cd ~/globasoft/extracteur
+cd ~/globasoft/aerotech
 source .venv/bin/activate
 python -m dotenv -f .env.dev run -- python -m src.run_jobs
 ```
@@ -148,7 +148,7 @@ python -m dotenv -f .env.dev run -- python -m src.run_jobs
 ### 5.2 Watcher (surveillance continue)
 #### Windows
 ```
-cd C:\globasoft\extracteur
+cd C:\globasoft\aerotech
 .\.venv\Scripts\Activate.ps1
 .\.venv\Scripts\python.exe -m dotenv -f .env.dev run -- .\.venv\Scripts\python.exe -m src.watch_jobs
 # Arrêt : Ctrl + C
@@ -156,7 +156,7 @@ cd C:\globasoft\extracteur
 
 #### macOS / Linux
 ```
-cd ~/globasoft/extracteur
+cd ~/globasoft/aerotech
 source .venv/bin/activate
 python -m dotenv -f .env.dev run -- python -m src.watch_jobs
 # Arrêt : Ctrl + C
@@ -181,7 +181,7 @@ Créer un `dev.ps1` à la racine :
 ```
 Puis :
 ```
-cd C:\globasoft\extracteur
+cd C:\globasoft\aerotech
 .\dev.ps1
 ```
 Alias temporaires :
